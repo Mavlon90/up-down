@@ -51,14 +51,11 @@ purchaseAddButtonEl.onclick = evt => {
     const purchaseUpButtonEl = purchaseEl.querySelector('[data-action=up]');
     purchaseUpButtonEl.onclick = () => 
     {
-        if(purchaseEl === purchaseEl.parentNode.firstChild)
-        {
+        if(purchaseEl === purchaseEl.parentNode.firstChild) { 
             purchasesListEl.insertBefore(purchaseEl);
+            return; 
         }
-        else 
-        {
-            purchasesListEl.insertBefore(purchaseEl, purchaseEl.previousSibling);
-        }
+        purchasesListEl.insertBefore(purchaseEl, purchaseEl.previousSibling);
     };
 
     const purchaseDownButtonEl = purchaseEl.querySelector('[data-action=down]');
@@ -67,11 +64,9 @@ purchaseAddButtonEl.onclick = evt => {
         if(purchaseEl === purchaseEl.parentNode.lastChild)
         {
             purchasesListEl.insertBefore(purchaseEl);
+      return;
         }
-        else
-        {
             purchasesListEl.insertBefore(purchaseEl.nextSibling,purchaseEl );
-        }
     };
 
     purchasesListEl.insertBefore(purchaseEl, purchasesListEl.firstElementChild);
